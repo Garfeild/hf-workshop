@@ -153,19 +153,19 @@
 			path = WorkshopUITests;
 			sourceTree = "<group>";
 		};
-		4A2777BB2BFC019900842D66 /* DataSources */ = {
+		4A2777BB2BFC019900842D66 /* SocialFeed */ = {
 			isa = PBXGroup;
 			children = (
 				4A844D212BFBF15000DB4FB0 /* SocialFeedRepository.swift */,
 			);
-			path = DataSources;
+			path = SocialFeed;
 			sourceTree = "<group>";
 		};
 		4A844D1E2BFBF13900DB4FB0 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
 				4A844D262BFBFA0700DB4FB0 /* Orders */,
-				4A2777BB2BFC019900842D66 /* DataSources */,
+				4A2777BB2BFC019900842D66 /* SocialFeed */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";

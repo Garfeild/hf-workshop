@@ -2,18 +2,16 @@ import SwiftUI
 import FoodTruckKit
 
 struct ContentView: View {
+    var foodTruckModel: FoodTruckModel
+    var cartModel: CartModel
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            DonutView(donut: .blackRaspberry)
+        NavigationStack {
+            DonutGallery(model: foodTruckModel, cartModel: cartModel)
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(foodTruckModel: FoodTruckModel(), cartModel: CartModel())
 }

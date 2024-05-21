@@ -18,6 +18,7 @@ class CartModel: ObservableObject {
 
     func add(_ donut: Donut) {
         order[donut.id, default: 0] += 1
+        print("Added \(donut.name) | Current order: \(order)")
     }
 
     func remove(_ donut: Donut) {
@@ -25,13 +26,13 @@ class CartModel: ObservableObject {
         if order[donut.id] == 0 {
             order[donut.id] = nil
         }
+        print("Removed \(donut.name) | Current order: \(order)")
     }
 
     func clear() {
         order = [:]
+        print("Cleared order")
     }
-
-
 }
 
 struct DonutGallery: View {
@@ -52,11 +53,7 @@ struct DonutGallery: View {
     }
 
     var tableImageSize: Double {
-        #if os(macOS)
-        return 30
-        #else
         return 60
-        #endif
     }
 
     var body: some View {
@@ -68,20 +65,18 @@ struct DonutGallery: View {
             }
         }
         .background()
-        #if os(iOS)
         .toolbarRole(.browser)
-        #endif
         .toolbar {
             ToolbarItemGroup {
                 toolbarItems
             }
         }
-        .onChange(of: popularityTimeframe) { newValue in
+        .onChange(of: popularityTimeframe) { _, newValue in
             if case .popularity = sort {
                 sort = .popularity(newValue)
             }
         }
-        .onChange(of: sortFlavor) { newValue in
+        .onChange(of: sortFlavor) { _, newValue in
             if case .flavor = sort {
                 sort = .flavor(newValue)
             }

@@ -1,10 +1,14 @@
+import FoodTruckKit
 import SwiftUI
 
 @main
 struct WorkshopApp: App {
+    @StateObject private var foodTruckModel = FoodTruckModel()
+    @StateObject private var cartModel = CartModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(foodTruckModel: foodTruckModel, cartModel: cartModel)
         }
     }
 }
